@@ -1,0 +1,135 @@
+*{
+    box-sizing: border-box;
+}
+
+.c_nav{
+    display: flex;
+    flex-wrap: wrap;
+    height: 50px;
+    background: #353940;
+    color: white;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .c_nav > .c_nav__center{
+    width: 70%;
+    height: 100%;
+    background: #353940;
+    display: flex;
+    justify-items: center;
+  }
+
+
+  
+  
+  .c_desc{
+    display: flex;
+    flex-wrap: wrap;
+    
+    max-height: auto;
+    background: #2a2c32;
+    color: white;
+    width: 100%;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  
+  .c_desc > .c_desc__center{
+    width: 70%;
+    height: 100%;
+    background: #2a2c32;
+    padding: 1rem;
+  }
+  
+  
+  .c_main{
+    display: flex;
+    flex-wrap: wrap;
+    height: 50px;
+    background: transparent;
+    color: black;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .c_main > .c_main__center{
+    width: 70%;
+    height: 100%;
+    background: transparent;
+  }
+  
+  
+  .c_footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 100%;
+    background: #353940cf;
+    color: white;
+    width: 100%;
+    justify-content: center;
+    font-size: .8rem;
+  }
+  
+  .c_footer > .c_footer__center{
+    width: 70%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+  
+  }
+  
+  ul > li{
+    max-width: 100%;
+    padding: 0px 5px;
+    cursor: pointer;
+  }
+  
+  @media screen {
+    .q-field--outlined .q-field__control::before {
+        border: 0px solid rgba(0, 0, 0, 0.24);
+        transition: border-color 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+    }  
+  }
+  
+  @media (min-width: 0px) and (max-width: 1450px){
+    .c_nav > .c_nav__center{
+      width: 100%;
+    }
+    .c_desc > .c_desc__center{
+      width: 100%;
+      padding: 0.5rem;
+    }
+
+    .c_main > .c_main__center{
+        width: 100%;
+        padding: 0.5rem;
+      }
+  
+    .c_footer > .c_footer__center{
+      width: 100%;
+      padding: 0.5rem;
+    }
+  }
+  
+  
+ 
+
+
+  @media (min-width: 0px) and (max-width: 500px){
+    .c_footer > .c_footer__center{
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
