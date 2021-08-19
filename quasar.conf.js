@@ -29,6 +29,7 @@ module.exports = function (/* ctx */) {
     css: [
       'app.scss',
       'main.css',
+      'form.css',
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras

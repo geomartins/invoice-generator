@@ -1,0 +1,95 @@
+.text_right {
+    text-align: right;
+  }
+  .input__flex__inline {
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    align-items: center;
+  }
+  
+  .input__flex__inline.title {
+    font-size: 2rem;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+  
+  .input__flex__inline > div {
+    width: 50%;
+    color: #999;
+  }
+  
+  .input__flex__inline > div:first-child {
+    padding-right: 20px;
+    color: #999;
+  }
+  
+  .input__flex {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    /* align-items: center; */
+    margin-bottom: 1rem;
+  }
+  
+  .input__flex > div {
+    width: 90%;
+  }
+  
+  .input__flex > div:first-child {
+    padding-right: 20px;
+    color: #999;
+  }
+  
+  .clip {
+    height: 1.8rem;
+    background: #353940;
+    color: #fff;
+    width: 100%;
+    padding-left: 0.8rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .clip.first {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .clip.last {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    background: #9999991c none repeat scroll 0% 0%;
+    height: 200px;
+    margin: auto;
+  }
+  
+  .cardContainer > div {
+    margin-bottom: 20px;
+    width: 70%;
+  }
+  
+  .q-uploader__file--img {
+      color: #fff;
+      height: 100px!important;
+      min-width: 200px;
+  }
+  
+  @media (min-width: 0px) and (max-width: 900px) {
+    .input__flex__inline > div {
+      width: 100%;
+    }
+  
+    .input__flex > div {
+      width: 100%;
+    }
+  }

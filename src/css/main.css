@@ -97,10 +97,10 @@
   }
   
   @media screen {
-    .q-field--outlined .q-field__control::before {
+    /* .q-field--outlined .q-field__control::before {
         border: 0px solid rgba(0, 0, 0, 0.24);
         transition: border-color 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-    }  
+    }   */
   }
   
   @media (min-width: 0px) and (max-width: 1450px){
