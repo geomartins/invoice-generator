@@ -1,10 +1,31 @@
 //import axios from 'axios'
 
 const state = {
+  currencies: [
+    {
+      label: "Nigerian Naira",
+      value: "&#8358;"
+    },
+    {
+      label: "US dollar",
+      value: "&#36;"
+    },
+
+    {
+      label: "Japanese Yen",
+      value: "&#xa5;"
+    },
+
+    {
+      label: "Chinese Yuan",
+      value: "&#x5143;"
+    }
+  ],
   formData: {
     logo: "",
-    currency: "",
+    currency: "&#36;",
     invoiceId: "",
+    currency: "",
 
     invoiceFrom: "",
     billTo: "",
@@ -69,8 +90,9 @@ const mutations = {
   clearFormData(state, payload) {
     state.formData = {
       logo: "",
-      currency: "",
+      currency: "&#36;",
       invoiceId: "",
+      currency: "",
 
       invoiceFrom: "",
       billTo: "",

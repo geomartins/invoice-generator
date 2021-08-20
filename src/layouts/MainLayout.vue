@@ -33,14 +33,13 @@
       <router-view />
     </q-page-container>
 
-    
     <div class="c_footer">
       <div class="c_footer__center">
-        <div class="c_foote__center__left">&copy; Martins Abiodun 2019</div>
+        <div class="c_foote__center__left">&copy; Swapbox {{ new Date().getFullYear() }}</div>
         <div class="c_foote__center__right">
           <ul>
-            <li @click.prevent="openUrl('https://google.com')">Source Code</li>
-            <li @click.prevent="openUrl('https://google.com')">
+            <li @click.prevent="openUrl('https://github.com/geomartins/invoice-generator')">Source Code</li>
+            <li @click.prevent="openUrl('https://github.com/geomartins')">
               About Developer
             </li>
           </ul>
@@ -60,7 +59,7 @@ export default {
   methods: {
     openUrl(url) {
       openURL(url);
-    },
-  },
+    }
+  }
 };
 </script>

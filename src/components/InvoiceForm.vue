@@ -189,6 +189,21 @@
             </q-input>
           </div>
         </div>
+
+        <div class="input__flex__inline">
+          <div>Currency</div>
+          <div>
+            <q-select
+              outlined
+              v-model="currency"
+              :options="currencies"
+              emit-value
+              map-options
+              :dense="dense"
+              style="padding-bottom: 2px"
+            />
+          </div>
+        </div>
       </div>
     </div>
 
@@ -273,7 +288,6 @@
           placeholder="Rate"
           style="padding-bottom: 2px"
           class="q-ml-xs"
-          prefix="$"
           :rules="numericOrDecimal"
         >
         </q-input>
@@ -282,7 +296,8 @@
       <div class="col-lg-3 col-md-5 col-xs-6 col-sm-6">
         <div class="input__flex__inline q-my-sm">
           <div style="text-align: left; padding-left: 1rem;">
-            ${{ item.rate * item.quantity }}
+            <span v-html="formData.currency"> </span>
+            {{ item.rate * item.quantity }}
           </div>
           <div>
             <q-btn
@@ -357,7 +372,7 @@
       <div class="col-md-4 col-sm-5 col-xs-12">
         <div class="input__flex__inline q-my-sm">
           <div>Subtotal</div>
-          <div>${{ subTotal }}</div>
+          <div><span v-html="formData.currency"> </span> {{ subTotal }}</div>
         </div>
 
         <div class="input__flex__inline">
@@ -403,16 +418,19 @@
               v-model="shipping"
               :dense="dense"
               style="padding-bottom: 2px"
-              prefix="$"
               :rules="numericOrDecimal"
             >
+              <template v-slot:before>
+                <span style="font-size: 0.8rem" v-html="formData.currency">
+                </span>
+              </template>
             </q-input>
           </div>
         </div>
 
         <div class="input__flex__inline q-my-sm">
           <div>Total</div>
-          <div>${{ total }}</div>
+          <div><span v-html="formData.currency"> </span> {{ total }}</div>
         </div>
 
         <div class="input__flex__inline">
@@ -425,16 +443,19 @@
               ref="amountPaid"
               :dense="dense"
               style="padding-bottom: 2px"
-              prefix="$"
               :rules="numericOrDecimal"
             >
+              <template v-slot:before>
+                <span style="font-size: 0.8rem" v-html="formData.currency">
+                </span>
+              </template>
             </q-input>
           </div>
         </div>
 
         <div class="input__flex__inline q-my-sm">
           <div>Balance Due</div>
-          <div>${{ balanceDue }}</div>
+          <div><span v-html="formData.currency"> </span> {{ balanceDue }}</div>
         </div>
       </div>
     </div>
@@ -460,7 +481,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("invoice", ["formData"]),
+    ...mapState("invoice", ["formData", "currencies"]),
     ...mapGetters("invoice", ["subTotal", "total", "balanceDue"]),
     amountPaid: {
       get() {
@@ -548,6 +569,15 @@ export default {
       },
       set(value) {
         this.updateFormData({ key: "invoiceId", value: value });
+      }
+    },
+
+    currency: {
+      get() {
+        return this.formData.currency;
+      },
+      set(value) {
+        this.updateFormData({ key: "currency", value: value });
       }
     },
 

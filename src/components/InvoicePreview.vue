@@ -3,7 +3,7 @@
     :show-layout="true"
     :float-layout="false"
     :enable-download="true"
-    :preview-modal="true"
+    :preview-modal="false"
     filename="hee hee"
     :manual-pagination="true"
     :html-to-pdf-options="htmlToPdfOptions"
@@ -68,21 +68,21 @@
           <div class="input__flex__inline">
             <div>Date</div>
             <div style="text-align: left">
-              {{ formData.date }}
+              {{ formData.date | dateToHumanReadableForm }}
             </div>
           </div>
 
           <div class="input__flex__inline">
             <div>Payment Date</div>
             <div style="text-align: left">
-              {{ formData.paymentDate }}
+              {{ formData.paymentDate | dateToHumanReadableForm }}
             </div>
           </div>
 
           <div class="input__flex__inline">
             <div>Due Date</div>
             <div style="text-align: left">
-              {{ formData.dueDate }}
+              {{ formData.dueDate | dateToHumanReadableForm }}
             </div>
           </div>
         </div>
@@ -144,13 +144,14 @@
           class="col-lg-2 col-md-2 col-md-2 col-xs-2"
           style="padding-left: 1rem;"
         >
-          $ {{ item.rate }}
+          <span v-html="formData.currency"> </span> {{ item.rate }}
         </div>
 
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <div class="input__flex__inline q-my-sm">
             <div style="text-align: left; padding-left: 1rem;">
-              ${{ item.rate * item.quantity }}
+              <span v-html="formData.currency"> </span>
+              {{ item.rate * item.quantity }}
             </div>
             <div></div>
           </div>
@@ -186,37 +187,48 @@
         <div class="col-md-4 col-sm-4 col-xs-4">
           <div class="input__flex__inline q-my-sm">
             <div>Subtotal</div>
-            <div style="text-align: left">${{ subTotal }}</div>
+            <div style="text-align: left">
+              <span v-html="formData.currency"> </span>{{ subTotal }}
+            </div>
           </div>
 
           <div class="input__flex__inline">
             <div>Discount</div>
-            <div style="text-align: left">% {{ formData.discount }}</div>
+            <div style="text-align: left">{{ formData.discount }} %</div>
           </div>
 
           <div class="input__flex__inline">
             <div>Tax</div>
-            <div style="text-align: left">% {{ formData.tax }}</div>
+            <div style="text-align: left">{{ formData.tax }} %</div>
           </div>
 
           <div class="input__flex__inline">
             <div>Shipping</div>
-            <div style="text-align: left">$ {{ formData.shipping }}</div>
+            <div style="text-align: left">
+              <span v-html="formData.currency"> </span> {{ formData.shipping }}
+            </div>
           </div>
 
           <div class="input__flex__inline q-my-sm">
             <div>Total</div>
-            <div style="text-align: left">${{ total }}</div>
+            <div style="text-align: left">
+              <span v-html="formData.currency"> </span>{{ total }}
+            </div>
           </div>
 
           <div class="input__flex__inline">
             <div>Amount Paid</div>
-            <div style="text-align: left">$ {{ formData.amountPaid }}</div>
+            <div style="text-align: left">
+              <span v-html="formData.currency"> </span>
+              {{ formData.amountPaid }}
+            </div>
           </div>
 
           <div class="input__flex__inline q-my-sm">
             <div>Balance Due</div>
-            <div style="text-align: left">${{ balanceDue }}</div>
+            <div style="text-align: left">
+              <span v-html="formData.currency"> </span> {{ balanceDue }}
+            </div>
           </div>
         </div>
       </div>
@@ -250,6 +262,24 @@ export default {
         // }
       }
     };
+  },
+  filters: {
+    dateToHumanReadableForm: function(value) {
+      if (!value) return "";
+      value = value.toString();
+      var dateData, dateObject, dateReadable;
+
+      dateData = value
+        .replace(/-/g, "/")
+        .replace("T", " ")
+        .replace(/\..*|\+.*/, ""); //For example
+
+      dateObject = new Date(Date.parse(dateData));
+
+      dateReadable = dateObject.toDateString();
+
+      return dateReadable;
+    }
   },
   computed: {
     ...mapState("invoice", ["formData"]),
