@@ -2,7 +2,7 @@
   <div>
     <!-- AAA -->
     <div class="row">
-      <div class="col-md-7 col-sm-7 col-xs-12">
+      <div class="col-md-8 col-sm-8 col-xs-12">
         <div class="row">
           <div class="col-md-8 col-xs-12 col-sm-12">
             <div class="input__flex">
@@ -77,7 +77,7 @@
         </div>
       </div>
 
-      <div class="col-md-5 col-sm-5 col-xs-12">
+      <div class="col-md-4 col-sm-4 col-xs-12">
         <div class="input__flex__inline title">INVOICE</div>
         <div class="input__flex__inline">
           <q-input
@@ -194,19 +194,31 @@
 
     <div class="q-ma-md"></div>
     <div class="row">
-      <div class="col-lg-5">
+      <div
+        class="col-lg-5 col-md-5 col-xs-6 col-sm-6"
+        style="border: 1px solid #fff"
+      >
         <div class="clip first">Item</div>
       </div>
 
-      <div class="col-lg-2">
+      <div
+        class="col-lg-2 col-md-2 col-xs-6 col-sm-6"
+        style="border: 1px solid #fff"
+      >
         <div class="clip">Quantity</div>
       </div>
 
-      <div class="col-lg-2">
+      <div
+        class="col-lg-2 col-md-2 col-xs-6 col-sm-6"
+        style="border: 1px solid #fff"
+      >
         <div class="clip">Rate</div>
       </div>
 
-      <div class="col-lg-3">
+      <div
+        class="col-lg-3 col-md-3 col-xs-6 col-sm-6"
+        style="border: 1px solid #fff"
+      >
         <div class="clip last">Amount</div>
       </div>
     </div>
@@ -218,7 +230,7 @@
       v-for="(item, index) in formData.items"
       :key="item + index"
     >
-      <div class="col-lg-5 col-sm-12 col-xs-12">
+      <div class="col-lg-5 col-md-5 col-xs-6 col-sm-6">
         <q-input
           outlined
           bottom-slots
@@ -234,7 +246,7 @@
         </q-input>
       </div>
 
-      <div class="col-lg-2 col-sm-12 col-xs-12">
+      <div class="col-lg-2 col-md-5 col-xs-6 col-sm-6">
         <q-input
           outlined
           bottom-slots
@@ -250,7 +262,7 @@
         </q-input>
       </div>
 
-      <div class="col-lg-2 col-sm-12 col-xs-12">
+      <div class="col-lg-2 col-md-5 col-xs-6 col-sm-6">
         <q-input
           outlined
           bottom-slots
@@ -267,7 +279,7 @@
         </q-input>
       </div>
 
-      <div class="col-lg-3 col-sm-12 col-xs-12">
+      <div class="col-lg-3 col-md-5 col-xs-6 col-sm-6">
         <div class="input__flex__inline q-my-sm">
           <div style="text-align: left; padding-left: 1rem;">
             ${{ item.rate * item.quantity }}
@@ -300,7 +312,7 @@
     <!-- ------------------------------------------------------------------------ -->
 
     <div class="row">
-      <div class="col-md-7 col-sm-7 col-xs-12">
+      <div class="col-md-8 col-sm-7 col-xs-12">
         <div class="row">
           <div class="col-md-8 col-xs-12 col-sm-12">
             <div class="input__flex">
@@ -342,7 +354,7 @@
         </div>
       </div>
 
-      <div class="col-md-5 col-sm-5 col-xs-12">
+      <div class="col-md-4 col-sm-5 col-xs-12">
         <div class="input__flex__inline q-my-sm">
           <div>Subtotal</div>
           <div>${{ subTotal }}</div>
@@ -436,6 +448,9 @@ export default {
   components: {},
   data() {
     return {
+      htmlToPdfOptions: {
+        margin: 10
+      },
       numericOrDecimal: [
         val =>
           /^\d+(\.\d{1,2})?$/.test(val) || "Numeric or decimal numbers required"
@@ -571,8 +586,7 @@ export default {
       "updateItem",
       "clearFormData"
     ]),
-    
-   
+
     updateItemX(event, key, index) {
       this.updateItem({ key: key, value: event.target.value, index: index });
     },

@@ -13,7 +13,7 @@
   }
   
   .c_nav > .c_nav__center{
-    width: 70%;
+    width: 60%;
     height: 100%;
     background: #353940;
     display: flex;
@@ -36,7 +36,7 @@
   }
   
   .c_desc > .c_desc__center{
-    width: 70%;
+    width: 60%;
     height: 100%;
     background: #2a2c32;
     padding: 1rem;
@@ -54,7 +54,7 @@
   }
   
   .c_main > .c_main__center{
-    width: 70%;
+    width: 60%;
     height: 100%;
     background: transparent;
   }
@@ -75,7 +75,7 @@
   }
   
   .c_footer > .c_footer__center{
-    width: 70%;
+    width: 60%;
     height: 100%;
     background: transparent;
     display: flex;
@@ -96,12 +96,12 @@
     cursor: pointer;
   }
   
-  @media screen {
-    /* .q-field--outlined .q-field__control::before {
+  /* @media screen {
+    .q-field--outlined .q-field__control::before {
         border: 0px solid rgba(0, 0, 0, 0.24);
         transition: border-color 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-    }   */
-  }
+    }  
+  } */
   
   @media (min-width: 0px) and (max-width: 1450px){
     .c_nav > .c_nav__center{

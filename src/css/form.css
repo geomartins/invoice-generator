@@ -14,6 +14,15 @@
     letter-spacing: 2px;
     margin-bottom: 1rem;
   }
+
+  .input__flex__inline.title2 {
+    font-size: 2rem;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+  }
   
   .input__flex__inline > div {
     width: 50%;
@@ -92,4 +101,9 @@
     .input__flex > div {
       width: 100%;
     }
+
+    .q-stepper--horizontal .q-stepper__step-inner {
+      padding: .6rem;
+      overflow: hidden;
+  }
   }

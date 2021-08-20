@@ -4,7 +4,7 @@
       <div class="c_main__center">
         <div class="row q-mt-md">
           <div
-            class="col-lg-9 col-md-9 col-sm-12 col-xs-12"
+            class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
             style="margin-bottom: 5rem; border: 1px solid #c3c3c3c4;"
           >
             <q-stepper
@@ -68,34 +68,6 @@
                 </q-stepper-navigation>
               </template>
             </q-stepper>
-          </div>
-
-          <div
-            class="col-lg-3 col-md-3 col-sm-12 col-xs-12"
-            style="margin-bottom: 5rem"
-          >
-            <div class="cardContainer">
-              <!-- <div>
-                <q-btn
-                  color="secondary"
-                  label="Download Invoice"
-                  unelevated
-                  class="full-width"
-                  @click="generateReport()"
-                />
-              </div> -->
-
-              <div>
-                <q-btn
-                  color="red"
-                  label="Clear Invoice"
-                  glossy
-                  outline
-                  @click.prevent="clearFormData()"
-                  class="full-width"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </div>
