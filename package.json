@@ -1,8 +1,8 @@
 {
   "name": "agropark_erp",
   "version": "0.0.1",
-  "description": "Agropark Enterprise Resource Planning",
-  "productName": "Agropark Erp",
+  "description": "Free Online Invoice Generator",
+  "productName": "Free Invoice Generator",
   "author": "Martins Abiodun <martinsabiodun94@gmail.com>",
   "private": true,
   "scripts": {
